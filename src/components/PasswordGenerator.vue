@@ -37,6 +37,10 @@ export default {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  --dark-color: #0f0a0a;
+  --light-color: #f5efed;
+  --accent-color: #2292a4;
+  --success-color: #cbe896;
 }
 .buttonCheckbox {
   all: unset;
@@ -44,17 +48,17 @@ export default {
 
 .labelButton {
   padding: 0 0.2rem;
-  border: 0.2rem solid pink;
+  border: 0.2rem solid var(--accent-color);
   border-radius: 0.2rem;
 }
 
 .buttonCheckbox:checked + .labelButton {
-  background-color: black;
-  color: white;
+  background-color: var(--dark-color);
+  color: var(--light-color);
 }
 
 .buttonCheckbox:focus + .labelButton {
-  border: 0.2rem solid pink;
+  border: 0.2rem solid var(--accent-color);
 }
 
 p {
@@ -64,7 +68,7 @@ p {
 .slidingTool {
   -webkit-appearance: none;
   appearance: none;
-  background-color: white;
+  background-color: var(--light-color);
   height: 0.5rem;
   border-radius: 0.5rem;
 }
@@ -74,7 +78,7 @@ p {
   appearance: none;
   width: 1rem;
   height: 1rem;
-  background: pink;
+  background: var(--accent-color);
   border-radius: 50%;
 }
 </style>

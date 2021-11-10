@@ -17,11 +17,13 @@ export default {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  color: white;
+  --light-color: #f5efed;
+  color: var(--light-color);
   margin-top: 60px;
 }
 
 :root {
-  background-color: black;
+  --dark-color: #0f0a0a;
+  background-color: var(--dark-color);
 }
 </style>
