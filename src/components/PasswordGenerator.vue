@@ -1,22 +1,24 @@
 <template>
-  <section>
-    <h1>{{ message }}</h1>
-    <p>Kumulierte Password Werte</p>
-    <button @click="copyYourPassword">Copy Your Password</button>
-    <p>unsichtbar</p>
-  </section>
-  <section>
-    <form v-on:submit.prevent="add">
+  <main>
+    <section>
+      <h1>{{ message }}</h1>
+      <p class="passwordID">Kumulierte Password Werte</p>
+      <button @click="copyYourPassword">Copy Your Password</button>
+      <p>unsichtbar</p>
+    </section>
+    <section>
       <input type="checkbox" class="buttonLowercase" id="labelID1" />
       <label class="labelButton" for="labelID1">Lowercase</label>
       <input type="checkbox" class="buttonUppercase" id="labelID2" />
       <label class="labelButton" for="labelID2">Uppercase</label>
+    </section>
+    <section>
       <input type="checkbox" class="buttonNumbers" id="labelID3" />
       <label class="labelButton" for="labelID3">Numbers</label>
       <input type="checkbox" class="buttonSymbols" id="labelID4" />
       <label class="labelButton" for="labelID4">Symbols</label>
-    </form>
-    <form v-on:submit.prevent="add">
+    </section>
+    <section>
       <p>Password Lenght:</p>
       <input
         type="range"
@@ -24,15 +26,22 @@
         id="labelrangeID1"
         min="8"
         max="35"
+        v-model="value"
       />
-      <label class="labelSlider" for="labelrangeID1">irgendein wert</label>
-    </form>
-  </section>
+      <label class="labelSlider" for="labelrangeID1">{{ value }}</label>
+    </section>
+  </main>
 </template>
 
 <script>
 export default {
   name: "PasswordGenerator",
+  data() {
+    return { value: 8 };
+  },
+  methods: {
+    copyYourPassword() {},
+  },
   props: {
     message: String,
   },
@@ -53,22 +62,51 @@ export default {
   --success-color: #cbe896;
 }
 
-section {
+main {
   font-size: 1.25em;
+  display: grid;
+  justify-content: center;
+}
+
+section {
 }
 
 p {
   margin: 3em;
 }
 
+button {
+  font-size: 1rem;
+  background-color: var(--accent-color);
+  padding: 0.5rem 0.5rem;
+  border: 0.1rem solid var(--dark-color);
+  border-radius: 0.2rem;
+  width: 200px;
+}
+
 input {
   all: unset;
-  /* margin: 1em; */
-  padding: 0.1em 0.4em;
+}
+
+.labelSlider {
+  margin: 1em;
+}
+
+#labelID1,
+#labelID2,
+#labelID3,
+#labelID4 {
+  margin: 3em;
+}
+
+/* Sliding Bar*/
+/* Hier länge der Bar einstellen */
+input[type="range"] {
+  width: 30em;
 }
 
 .labelButton {
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   border: 0.2rem solid var(--accent-color);
   border-radius: 0.2rem;
 }
