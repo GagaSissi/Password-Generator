@@ -13,7 +13,7 @@
     <form v-on:submit.prevent="add">
       <p>Password Lenght:</p>
       <input type="range" class="slidingTool" id="labelID2" />
-      <label class="labelSlider" for="labelID2" min="1" max="15"
+      <label class="labelSlider" for="labelID2" min="8" max="35"
         >irgendein wert</label
       >
     </form>
