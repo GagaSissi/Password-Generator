@@ -7,15 +7,35 @@
       <p>unsichtbar</p>
     </section>
     <section>
-      <input type="checkbox" class="buttonLowercase" id="labelID1" />
+      <input
+        type="checkbox"
+        class="buttonLowercase"
+        id="labelID1"
+        v-model="lowerCaseCharakters"
+      />
       <label class="labelButton" for="labelID1">Lowercase</label>
-      <input type="checkbox" class="buttonUppercase" id="labelID2" />
+      <input
+        type="checkbox"
+        class="buttonUppercase"
+        id="labelID2"
+        v-model="upperCaseCharakters"
+      />
       <label class="labelButton" for="labelID2">Uppercase</label>
     </section>
     <section>
-      <input type="checkbox" class="buttonNumbers" id="labelID3" />
+      <input
+        type="checkbox"
+        class="buttonNumbers"
+        id="labelID3"
+        v-model="numbersCharakters"
+      />
       <label class="labelButton" for="labelID3">Numbers</label>
-      <input type="checkbox" class="buttonSymbols" id="labelID4" />
+      <input
+        type="checkbox"
+        class="buttonSymbols"
+        id="labelID4"
+        v-model="objectsCharakters"
+      />
       <label class="labelButton" for="labelID4">Symbols</label>
     </section>
     <section>
@@ -27,6 +47,7 @@
         min="8"
         max="35"
         v-model="value"
+        @input="getYourPassword"
       />
       <label class="labelSlider" for="labelrangeID1">{{ value }}</label>
     </section>
@@ -37,10 +58,30 @@
 export default {
   name: "PasswordGenerator",
   data() {
-    return { value: 8 };
+    return {
+      value: 8,
+      newgetYourPassword: "",
+      lowerCaseCharakters: true,
+      upperCaseCharakters: false,
+      numbersCharakters: false,
+      objectsCharakters: false,
+    };
   },
   methods: {
-    copyYourPassword() {},
+    getYourPassword() {
+      let result = "";
+      let characters = "";
+      if (this.lowerCaseCharakters) {
+        characters += "abcdefghijklmnopqrstuvwxyz";
+      }
+      for (let i = 0; i < this.value; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * characters.length)
+        );
+      }
+      this.newgetYourPassword = result;
+      console.log(result);
+    },
   },
   props: {
     message: String,
