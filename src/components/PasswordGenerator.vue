@@ -112,15 +112,15 @@ export default {
 }
 
 main {
-  width: 50em;
+  width: 50rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
 .grid-container {
-  font-size: 1.25em;
-  height: 7em;
+  font-size: 1.25rem;
+  height: 7rem;
   display: grid;
   grid-template-columns: 25% 1fr 1fr 25%;
   grid-template-rows: 50% 50%;
@@ -155,8 +155,8 @@ main {
 }
 
 p {
-  margin: 1em;
-  height: 3em;
+  margin: 1rem;
+  height: 3rem;
 }
 
 .passwordID {
@@ -180,7 +180,7 @@ input {
 /* Sliding Bar*/
 /* Hier länge der Bar einstellen */
 input[type="range"] {
-  width: 30em;
+  width: 30rem;
 }
 
 .labelButton {
@@ -235,7 +235,7 @@ input[type="range"] {
 
 @media screen and (max-width: 800px) {
   .grid-container {
-    font-size: 1.25em;
+    font-size: 1.25rem;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
