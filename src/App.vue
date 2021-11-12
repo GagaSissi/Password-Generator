@@ -23,6 +23,10 @@ export default {
   margin-top: 60px;
 }
 
+html {
+  height: 100%;
+}
+
 :root {
   --dark-color: #0f0a0a;
   background-color: var(--dark-color);

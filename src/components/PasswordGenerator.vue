@@ -2,42 +2,48 @@
   <main>
     <section>
       <h1>{{ message }}</h1>
-      <p class="passwordID">Kumulierte Password Werte</p>
+      <p class="passwordID">Hallo {{ result }}</p>
       <button @click="copyYourPassword">Copy Your Password</button>
       <p>unsichtbar</p>
     </section>
-    <section>
-      <input
-        type="checkbox"
-        class="buttonLowercase"
-        id="labelID1"
-        v-model="lowerCaseCharakters"
-      />
-      <label class="labelButton" for="labelID1">Lowercase</label>
-      <input
-        type="checkbox"
-        class="buttonUppercase"
-        id="labelID2"
-        v-model="upperCaseCharakters"
-      />
-      <label class="labelButton" for="labelID2">Uppercase</label>
-    </section>
-    <section>
-      <input
-        type="checkbox"
-        class="buttonNumbers"
-        id="labelID3"
-        v-model="numbersCharakters"
-      />
-      <label class="labelButton" for="labelID3">Numbers</label>
-      <input
-        type="checkbox"
-        class="buttonSymbols"
-        id="labelID4"
-        v-model="objectsCharakters"
-      />
-      <label class="labelButton" for="labelID4">Symbols</label>
-    </section>
+    <article class="grid-container">
+      <section class="grid-box1">
+        <input
+          type="checkbox"
+          class="buttonLowercase"
+          id="labelID1"
+          v-model="lowerCaseCharakters"
+        />
+        <label class="labelButton" for="labelID1">Lowercase</label>
+      </section>
+      <section class="grid-box2">
+        <input
+          type="checkbox"
+          class="buttonUppercase"
+          id="labelID2"
+          v-model="upperCaseCharakters"
+        />
+        <label class="labelButton" for="labelID2">Uppercase</label>
+      </section>
+      <section class="grid-box3">
+        <input
+          type="checkbox"
+          class="buttonNumbers"
+          id="labelID3"
+          v-model="numbersCharakters"
+        />
+        <label class="labelButton" for="labelID3">Numbers</label>
+      </section>
+      <section class="grid-box4">
+        <input
+          type="checkbox"
+          class="buttonSymbols"
+          id="labelID4"
+          v-model="objectsCharakters"
+        />
+        <label class="labelButton" for="labelID4">Symbols</label>
+      </section>
+    </article>
     <section>
       <p>Password Lenght:</p>
       <input
@@ -60,6 +66,7 @@ export default {
   data() {
     return {
       value: 8,
+      result: "",
       newgetYourPassword: "",
       lowerCaseCharakters: true,
       upperCaseCharakters: false,
@@ -81,6 +88,7 @@ export default {
       }
       this.newgetYourPassword = result;
       console.log(result);
+      return result;
     },
   },
   props: {
@@ -104,16 +112,56 @@ export default {
 }
 
 main {
-  font-size: 1.25em;
-  display: grid;
+  width: 50em;
+  display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
-section {
+.grid-container {
+  font-size: 1.25em;
+  height: 7em;
+  display: grid;
+  grid-template-columns: 25% 1fr 1fr 25%;
+  grid-template-rows: 50% 50%;
+}
+
+.grid-box1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.grid-box2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.grid-box3 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.grid-box4 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 p {
-  margin: 3em;
+  margin: 1em;
+  height: 3em;
+}
+
+.passwordID {
+  width: 100%;
+  color: var(--light-color);
 }
 
 button {
@@ -127,17 +175,6 @@ button {
 
 input {
   all: unset;
-}
-
-.labelSlider {
-  margin: 1em;
-}
-
-#labelID1,
-#labelID2,
-#labelID3,
-#labelID4 {
-  margin: 3em;
 }
 
 /* Sliding Bar*/
@@ -194,5 +231,41 @@ input[type="range"] {
   height: 1.5rem;
   background: var(--accent-color);
   border-radius: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  .grid-container {
+    font-size: 1.25em;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+  }
+  .grid-box1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  .grid-box2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  .grid-box3 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .grid-box4 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
 }
 </style>
