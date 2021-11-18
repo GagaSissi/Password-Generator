@@ -14,14 +14,25 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap");
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Arvo", serif;
   text-align: center;
-  color: white;
+  --light-color: #f5efed;
+  color: var(--light-color);
   margin-top: 60px;
 }
 
+html {
+  height: 100%;
+}
+
 :root {
-  background-color: black;
+  --dark-color: #0f0a0a;
+  background-color: var(--dark-color);
+}
+
+button {
+  font-family: inherit;
 }
 </style>
